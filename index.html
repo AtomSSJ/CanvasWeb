@@ -181,39 +181,38 @@
     </style>
 </head>
 <body>
-    <div id="loading" role="alert" aria-live="polite">
+    <div id="loading">
         <div class="spinner"></div>
-        <p>Cargando canvas gigante...</p>
+        <p>Cargando canvas...</p>
     </div>
+
     <div id="canvas-container">
-        <canvas id="pixel-canvas" aria-label="Lienzo de píxeles para dibujar" role="img"></canvas>
+        <canvas id="background-layer"></canvas>
+        <canvas id="grid-layer"></canvas>
+        <canvas id="drawing-layer"></canvas>
+        <canvas id="ui-layer"></canvas>
     </div>
-    <div id="color-palette" role="toolbar" aria-label="Paleta de colores">
+
+    <div id="color-palette">
+        <div id="palette-handle"></div>
         <div id="color-picker">
-            <input type="color" id="color-input" aria-label="Selector de color">
-            <input type="text" id="color-hex" maxlength="7" aria-label="Código hexadecimal del color">
+            <input type="color" id="color-input">
+            <input type="text" id="color-hex" maxlength="7">
         </div>
         <div id="color-slider-container">
-            <input type="range" id="color-slider" min="0" max="100" value="100" aria-label="Control de brillo">
+            <input type="range" id="color-slider" min="0" max="100" value="100">
         </div>
-        <div id="preset-colors" role="group" aria-label="Colores predefinidos">
-            <div class="color" style="background-color: #000000;" data-color="#000000" role="button" aria-label="Negro"></div>
-            <div class="color" style="background-color: #FF0000;" data-color="#FF0000" role="button" aria-label="Rojo"></div>
-            <div class="color" style="background-color: #00FF00;" data-color="#00FF00" role="button" aria-label="Verde"></div>
-            <div class="color" style="background-color: #0000FF;" data-color="#0000FF" role="button" aria-label="Azul"></div>
-            <div class="color" style="background-color: #FFFF00;" data-color="#FFFF00" role="button" aria-label="Amarillo"></div>
-            <div class="color" style="background-color: #FF00FF;" data-color="#FF00FF" role="button" aria-label="Magenta"></div>
-            <div class="color" style="background-color: #00FFFF;" data-color="#00FFFF" role="button" aria-label="Cian"></div>
-            <div class="color" style="background-color: #FFA500;" data-color="#FFA500" role="button" aria-label="Naranja"></div>
-        </div>
+        <div id="preset-colors"></div>
     </div>
-    <div id="controls" role="toolbar" aria-label="Controles de zoom">
-        <button id="zoom-in" aria-label="Aumentar zoom">Zoom +</button>
-        <button id="zoom-out" aria-label="Reducir zoom">Zoom -</button>
-        <button id="reset-view" aria-label="Restablecer vista">Reset</button>
+
+    <div id="controls">
+        <button id="zoom-in" title="Zoom In (Ctrl +)">Zoom +</button>
+        <button id="zoom-out" title="Zoom Out (Ctrl -)">Zoom -</button>
+        <button id="reset-view" title="Reset View (Ctrl 0)">Reset</button>
     </div>
-    <div id="coordinates" role="status" aria-live="polite"></div>
-    <div id="notifications" role="alert" aria-live="polite"></div>
+
+    <div id="coordinates"></div>
+    <div id="notifications"></div>
 
     <!-- Panel de usuario -->
     <div id="user-panel">
@@ -232,8 +231,10 @@
         </div>
     </div>
 
-    <script src="canvas-manager.js"></script>
-    <script src="color-manager.js"></script>
-    <script src="interaction-manager.js"></script>
+    <!-- Scripts -->
+    <script src="js/color-manager.js"></script>
+    <script src="js/canvas-manager.js"></script>
+    <script src="js/interaction-manager.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
